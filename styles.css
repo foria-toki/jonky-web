@@ -160,9 +160,32 @@ ul,ol{padding:0;list-style:none}
 .encontrarnos h2 span{color:var(--amarillo)}
 .encontrarnos__texto p{font-size:21px;max-width:520px}
 .encontrarnos__texto .btn{align-self:flex-start}
-.mapa{flex:1.15 1 480px;min-width:0;min-height:300px;background:var(--crema);color:var(--marron);text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:32px;text-align:center;font-family:var(--f-sub);font-size:20px;font-weight:500;text-transform:uppercase;border:2px solid var(--marron);transition:background-color .15s,color .15s}
-.mapa:hover{background:var(--marron);color:var(--crema)}
-.mapa small{font-size:15px;font-weight:400;text-transform:none}
+.mapa{position:relative;flex:1.15 1 480px;min-width:0;height:480px;background:var(--crema);border:2px solid var(--marron);overflow:hidden}
+.mapa__lienzo{position:absolute;inset:0}
+.mapa__respaldo{position:absolute;inset:0;z-index:1;background:var(--crema);color:var(--marron);text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:32px;text-align:center;font-family:var(--f-sub);font-size:20px;font-weight:500;text-transform:uppercase;transition:background-color .15s,color .15s}
+.mapa__respaldo:hover{background:var(--marron);color:var(--crema)}
+.mapa__respaldo small{font-size:15px;font-weight:400;text-transform:none}
+.mapa--listo .mapa__respaldo{display:none}
+.mapa__aviso{position:absolute;z-index:1000;left:50%;bottom:14px;transform:translateX(-50%);margin:0;padding:6px 14px;background:var(--marron);color:var(--crema);font-family:var(--f-sub);font-size:14px;font-weight:500;text-transform:uppercase;white-space:nowrap;pointer-events:none}
+.mapa .leaflet-container{background:var(--crema);font-family:var(--f-texto)}
+.mapa .leaflet-tile-pane{filter:grayscale(.55) sepia(.4) contrast(.92) brightness(1.04)}
+.mapa .leaflet-bar{border:2px solid var(--marron);border-radius:0;box-shadow:none}
+.mapa .leaflet-bar a{width:36px;height:36px;line-height:34px;border-radius:0!important;background:var(--crema);color:var(--marron);font-family:var(--f-sub)}
+.mapa .leaflet-bar a:hover{background:var(--marron);color:var(--crema)}
+.mapa .leaflet-control-attribution{background:rgba(248,244,230,.85);color:var(--marron);font-size:11px}
+.mapa .leaflet-control-attribution a{color:var(--marron)}
+.pin{background:none;border:0}
+.pin svg{display:block;filter:drop-shadow(0 2px 2px rgba(74,48,30,.35));transition:transform .15s;transform-origin:50% 100%}
+.pin:hover svg,.pin:focus-visible svg{transform:scale(1.15)}
+.mapa .leaflet-popup-content-wrapper{background:var(--crema);color:var(--marron);border:2px solid var(--marron);border-radius:0;box-shadow:0 6px 18px rgba(74,48,30,.25)}
+.mapa .leaflet-popup-tip{background:var(--marron);box-shadow:none}
+.mapa .leaflet-popup-content{margin:14px 18px;line-height:1.35}
+.mapa a.leaflet-popup-close-button{color:var(--marron)}
+.pin-popup strong{display:block;font-family:var(--f-sub);font-size:19px;font-weight:600;text-transform:uppercase}
+.pin-popup span{display:block;font-size:15px}
+.pin-popup small{display:block;margin-top:2px;font-family:var(--f-sub);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--verde)}
+.mapa .pin-popup a{display:inline-block;margin-top:10px;padding:6px 12px;background:var(--naranja);color:var(--crema);font-family:var(--f-sub);font-size:14px;font-weight:600;text-transform:uppercase;text-decoration:none}
+.mapa .pin-popup a:hover{background:var(--marron);color:var(--crema)}
 .directorio{margin-top:72px;display:flex;flex-direction:column;gap:28px}
 .directorio__titulo{font-size:clamp(40px,4.4vw,64px);line-height:.9}
 .rubros{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px 28px;align-items:start}
@@ -222,6 +245,7 @@ ul,ol{padding:0;list-style:none}
   .cinta__track{font-size:32px}
   .ritual,.historia{padding-block:72px}
   .marrocs,.encontrarnos,.negocios,.preguntas{padding-block:72px}
+  .mapa{height:400px}
   .excusas h2{padding-block:64px 28px}
   .cajas{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px}
   .caja__cuerpo{height:190px}

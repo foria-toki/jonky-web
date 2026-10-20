@@ -186,11 +186,15 @@
             <p>No hacemos envíos. Lo vas a ver junto a la caja de carnicerías, vinotecas, fiambrerías y restós de Río Cuarto. Si no lo ves, preguntá: siempre hay alguien que lo recomienda.</p>
             <a href="https://maps.app.goo.gl/EYkFpU98VK7ymiHL7" class="btn btn--amarillo" target="_blank" rel="noopener">Ver el mapa completo</a>
           </div>
-          <a href="https://maps.app.goo.gl/EYkFpU98VK7ymiHL7" class="mapa" target="_blank" rel="noopener">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-            Abrir el mapa de puntos de encuentro
-            <small>Google Maps · Río Cuarto</small>
-          </a>
+          <div class="mapa" id="mapa">
+            <div class="mapa__lienzo" id="mapa-lienzo" role="region" aria-label="Mapa de los puntos de encuentro en Río Cuarto"></div>
+            <a href="https://maps.app.goo.gl/EYkFpU98VK7ymiHL7" class="mapa__respaldo" target="_blank" rel="noopener">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              Abrir el mapa de puntos de encuentro
+              <small>Google Maps · Río Cuarto</small>
+            </a>
+            <p class="mapa__aviso" id="mapa-aviso" hidden>Tocá el mapa para moverlo</p>
+          </div>
         </div>
         <div class="directorio">
           <p class="directorio__titulo titulo"><span id="pde-total">25</span> puntos de encuentro en Río Cuarto</p>
