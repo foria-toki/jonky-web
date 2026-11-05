@@ -114,8 +114,6 @@ const COORDS = {
   "cabrera 175": [-33.11818, -64.34984],
   "buenos aires 491": [-33.12323, -64.35354],
   "moreno 1503": [-33.12261, -64.367],
-  "moreno 1401": [-33.12289, -64.36543],
-  "san martin 2605": [-33.1151, -64.38257],
   "av marcelo t de alvear 392": [-33.10945, -64.34087],
   "velez sarsfield 243": [-33.12497, -64.3462],
   "ing dinkeldein 2116": [-33.13415, -64.36779],
@@ -217,3 +215,19 @@ if ("IntersectionObserver" in window) {
 } else {
   iniciarMapa().catch(() => {});
 }
+
+/* Historia: los capítulos aparecen suave al hacer scroll. */
+(function () {
+  const capitulos = document.querySelectorAll(".capitulo");
+  if (!capitulos.length || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.documentElement.classList.add("anima");
+  const obs = new IntersectionObserver((entradas) => {
+    entradas.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("visto");
+      obs.unobserve(e.target);
+    });
+  }, { rootMargin: "0px 0px -12% 0px" });
+  capitulos.forEach((c) => obs.observe(c));
+})();
