@@ -1,0 +1,25 @@
+# Publica la web en Vercel (producción) con cada push a main.
+# Necesita el secreto VERCEL_TOKEN en el repo.
+name: Publicar en Vercel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: publicar-produccion
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: team_8dn4W5CPvkoUfuhNsrxszGa7
+      VERCEL_PROJECT_ID: prj_mgU8qsHDRAmvczwy3x7pqfqvFzWb
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sacar archivos que no son de la web
+        run: rm -rf .github
+      - name: Publicar
+        run: npx --yes vercel@latest deploy --prod --yes --token "${{ secrets.VERCEL_TOKEN }}"
