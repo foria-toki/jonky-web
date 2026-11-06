@@ -251,17 +251,6 @@ ul,ol{padding:0;list-style:none}
 .anima .capitulo{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
 .anima .capitulo.visto{opacity:1;transform:none}
 
-/* Marrocs: vitrina */
-.vitrina{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:stretch}
-.vitrina__foto{position:relative;margin:0;background:#FBF4E4;outline:2px solid var(--durazno)}
-.vitrina__foto img:first-child{width:100%;height:100%;object-fit:cover}
-.vitrina__sticker{position:absolute;width:210px;left:-16px;bottom:22px;transform:rotate(-6deg)}
-.anatomia{background:var(--durazno);color:var(--marron);padding:32px;display:flex;flex-direction:column;gap:18px}
-.anatomia h3{font-size:24px;font-weight:600;line-height:1.1}
-.anatomia__dibujo{width:100%;height:auto;display:block}
-.anatomia__partes li{display:flex;gap:12px;align-items:flex-start;font-size:18px;line-height:1.35;padding:10px 0;border-top:1.5px solid rgba(74,48,30,.3)}
-.anatomia__partes span{flex:0 0 28px;height:28px;border-radius:50%;background:var(--naranja);color:var(--crema);font-family:var(--f-sub);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
-
 @media (max-width:760px){
   .historia__cabecera{margin-bottom:48px}
   .relato{gap:40px}
@@ -272,9 +261,6 @@ ul,ol{padding:0;list-style:none}
   .capitulo p:not(.capitulo__cuando){font-size:17px}
   .capitulo img{max-width:100%}
   .historia__sticker{width:170px}
-  .vitrina{grid-template-columns:1fr}
-  .vitrina__sticker{width:150px;left:-6px;bottom:14px}
-  .anatomia{padding:24px}
 }
 @media (prefers-reduced-motion:reduce){
   .anima .capitulo{opacity:1;transform:none;transition:none}
